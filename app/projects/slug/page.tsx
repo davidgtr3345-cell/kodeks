@@ -6,9 +6,9 @@ import { projectsData } from "@/data/projects";
 type ProjectSlug = keyof typeof projectsData;
 
 type ProjectPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export async function generateStaticParams() {
@@ -20,8 +20,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const slug = params.slug as ProjectSlug;
-  const project = projectsData[slug];
+  const { slug } = await params;
+  const project = projectsData[slug as ProjectSlug];
 
   if (!project) {
     return {
@@ -39,12 +39,12 @@ export async function generateMetadata({
     title: pageTitle,
     description: pageDescription,
     alternates: {
-      canonical: `/projects/${params.slug}`,
+      canonical: `/projects/${slug}`,
     },
     openGraph: {
       title: `${project.title} | Kodeks Studio`,
       description: pageDescription,
-      url: `https://www.tvoj-domen.ba/projects/${params.slug}`,
+      url: `/projects/${slug}`,
       siteName: "Kodeks Studio",
       locale: "bs_BA",
       type: "article",
@@ -57,9 +57,11 @@ export async function generateMetadata({
   };
 }
 
-export default function ProjectDetailPage({ params }: ProjectPageProps) {
-  const slug = params.slug as ProjectSlug;
-  const project = projectsData[slug];
+export default async function ProjectDetailPage({
+  params,
+}: ProjectPageProps) {
+  const { slug } = await params;
+  const project = projectsData[slug as ProjectSlug];
 
   if (!project) {
     notFound();
