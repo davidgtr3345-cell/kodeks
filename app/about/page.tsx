@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "O studiju | Kodeks Studio",
     description:
       "Pristup radu, dizajnu i izradi modernih web stranica i landing page rješenja za firme i uslužne djelatnosti.",
-    url: "https://www.tvoj-domen.ba/about",
+    url: "https://unrivaled-scone-064bb3.netlify.app/about",
     siteName: "Kodeks Studio",
     locale: "bs_BA",
     type: "website",
