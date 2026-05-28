@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const siteUrl = "https://unrivaled-scone-064bb3.netlify.app";
+const siteUrl = "https://kodeks.pages.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
