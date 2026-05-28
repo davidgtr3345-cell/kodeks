@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Projekti | Kodeks Studio",
     description:
       "Primjeri web stranica, landing page rješenja i interfejsa koje izrađuje Kodeks Studio.",
-    url: "https://www.tvoj-domen.ba/projects",
+    url: "/projects",
     siteName: "Kodeks Studio",
     locale: "bs_BA",
     type: "website",
