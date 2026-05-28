@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
+const siteUrl = "https://unrivaled-scone-064bb3.netlify.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.tvoj-domen.ba"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Kodeks Studio | Web stranice i landing page za firme",
     template: "%s | Kodeks Studio",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://www.tvoj-domen.ba",
+    url: "/",
     siteName: "Kodeks Studio",
     title: "Kodeks Studio | Web stranice i landing page za firme",
     description:
@@ -52,7 +54,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Kodeks Studio",
-    url: "https://www.tvoj-domen.ba",
+    url: siteUrl,
     description:
       "Izrada modernih web stranica, landing page rješenja i UI sistema za firme i uslužne djelatnosti.",
     areaServed: "Bosnia and Herzegovina",
@@ -63,7 +65,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Kodeks Studio",
-    url: "https://www.tvoj-domen.ba",
+    url: siteUrl,
     description:
       "Moderne web stranice, landing page rješenja i profesionalan online nastup za firme i usluge.",
     inLanguage: "bs-BA",
