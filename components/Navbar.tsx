@@ -15,14 +15,27 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const handleLogoClick = () => {
+    setOpen(false);
+
+    if (pathname === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07111d]/85 backdrop-blur-xl">
       <div className="container-main">
         <div className="navbar-row flex h-18 items-center justify-between gap-3 md:h-20 md:gap-4">
           <Link
             href="/"
+            scroll
             className="flex min-w-0 items-center gap-3"
-            onClick={() => setOpen(false)}
+            onClick={handleLogoClick}
+            aria-label="Idi na početnu stranicu"
           >
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[#0c1729] text-[#8ff1e3] shadow-[0_12px_30px_rgba(0,0,0,0.18)] md:h-12 md:w-12">
               <span className="text-[18px] font-semibold md:text-[20px]">Ƶ</span>
@@ -38,7 +51,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-7 xl:gap-8 lg:flex">
+          <nav className="hidden items-center gap-7 lg:flex xl:gap-8">
             {navigation.map((item) => {
               const isActive =
                 item.href === "/"
